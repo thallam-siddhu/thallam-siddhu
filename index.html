@@ -1,29 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Thallam Siddhu | Thallam X — Official</title>
 
-    <meta name="description"
-          content="Thallam Siddhu — official profile and Thallam X platform featuring technology projects, education, examinations, certificates and verified public profiles.">
-
-    <meta name="keywords"
-          content="Thallam Siddhu, Thallam X, ThallamX, PasswordVault, Hostel Management System, Smart Weather, Computer Science, Dhaanish Ahmed College of Engineering">
-
+    <meta name="description" content="Thallam Siddhu — official profile and Thallam X platform featuring technology projects, education, examinations, certificates and verified public profiles.">
+    <meta name="keywords" content="Thallam Siddhu, Thallam X, ThallamX, PasswordVault, Hostel Management System, Smart Weather, Computer Science, Dhaanish Ahmed College of Engineering">
     <meta name="author" content="Thallam Siddhu">
-
     <meta name="robots" content="index, follow">
 
     <link rel="canonical" href="https://thallam-siddhu.github.io/thallam-x/">
-
-    <!-- Logo as browser tab icon -->
     <link rel="icon" type="image/png" href="logo.png">
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
+        /* =========================
+           GLOBAL STYLES & VARIABLES
+        ========================= */
+        :root {
+            --bg-main: #060913;
+            --bg-card: rgba(15, 23, 42, 0.65);
+            --bg-card-hover: rgba(30, 41, 59, 0.85);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(56, 189, 248, 0.4);
+            --primary: #2563eb;
+            --primary-glow: #38bdf8;
+            --accent-cyan: #06b6d4;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 8px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
         * {
             margin: 0;
@@ -36,648 +51,559 @@
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #050505;
-            color: white;
-            line-height: 1.6;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 60%, rgba(6, 182, 212, 0.08) 0%, transparent 40%);
+            background-attachment: fixed;
         }
-
 
         /* =========================
            NAVIGATION
         ========================= */
-
         nav {
             position: fixed;
             top: 0;
             left: 0;
-
             width: 100%;
-
             z-index: 1000;
-
-            background: rgba(5, 5, 5, 0.94);
-
-            backdrop-filter: blur(15px);
-
-            border-bottom: 1px solid #222;
+            background: rgba(6, 9, 19, 0.75);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
         }
 
         .nav-container {
-
             max-width: 1200px;
-
             margin: auto;
-
-            padding: 10px 25px;
-
+            padding: 14px 28px;
             display: flex;
-
             justify-content: space-between;
-
             align-items: center;
         }
-
-
-        /* EXACT LOGO */
 
         .logo-link {
             display: flex;
-
             align-items: center;
-
             text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo-link:hover {
+            transform: scale(1.03);
+            filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.5));
         }
 
         .logo {
-
-            width: 115px;
-
-            height: 60px;
-
+            width: 110px;
+            height: 50px;
             object-fit: contain;
-
             display: block;
         }
 
-
-        /* NAV LINKS */
-
         .nav-links {
-
             display: flex;
-
-            gap: 30px;
-
+            gap: 28px;
             list-style: none;
         }
 
         .nav-links a {
-
-            color: #aaa;
-
+            color: var(--text-muted);
             text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 4px 0;
+        }
 
-            font-size: 16px;
-
-            transition: 0.3s;
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-glow));
+            transition: var(--transition);
+            border-radius: 2px;
         }
 
         .nav-links a:hover {
-
-            color: #168cff;
+            color: var(--text-main);
         }
 
+        .nav-links a:hover::after {
+            width: 100%;
+        }
 
         /* =========================
-           HERO
+           HERO SECTION
         ========================= */
-
         .hero {
-
             min-height: 100vh;
-
             display: flex;
-
             justify-content: center;
-
             align-items: center;
-
             text-align: center;
-
-            padding: 130px 20px 80px;
-
-            background:
-
-                radial-gradient(
-                    circle at 50% 35%,
-                    #202020 0%,
-                    #0c0c0c 42%,
-                    #050505 75%
-                );
+            padding: 150px 20px 100px;
+            position: relative;
         }
 
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(37, 99, 235, 0.05) 50%, transparent 70%);
+            filter: blur(60px);
+            z-index: -1;
+            pointer-events: none;
+        }
 
         .hero-content {
-
-            max-width: 900px;
-
+            max-width: 850px;
             margin: auto;
+            animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-
         .hero-label {
-
-            color: #888;
-
-            font-size: 14px;
-
-            letter-spacing: 5px;
-
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-glow);
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
             text-transform: uppercase;
+            margin-bottom: 30px;
+            backdrop-filter: blur(8px);
+        }
 
+        .hero-label::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background-color: var(--primary-glow);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--primary-glow);
+            animation: pulse 2s infinite;
+        }
+
+        .hero h1 {
+            font-size: clamp(56px, 10vw, 110px);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -3px;
             margin-bottom: 25px;
         }
 
-
-        .hero h1 {
-
-            font-size: clamp(
-                60px,
-                12vw,
-                125px
-            );
-
-            line-height: 0.95;
-
-            letter-spacing: -5px;
-
-            margin-bottom: 30px;
-        }
-
-
         .hero h1 .white {
-
-            color: white;
+            color: var(--text-main);
         }
-
 
         .hero h1 .blue {
-
-            color: #168cff;
+            background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            filter: drop-shadow(0 0 25px rgba(56, 189, 248, 0.3));
         }
-
 
         .hero-subtitle {
-
-            max-width: 760px;
-
-            margin: -10px auto 20px;
-
-            color: #ddd;
-
-            font-size: 18px;
+            max-width: 720px;
+            margin: 0 auto 20px;
+            color: #cbd5e1;
+            font-size: 20px;
+            font-weight: 500;
         }
-
 
         .hero-description {
-
-            max-width: 720px;
-
+            max-width: 650px;
             margin: auto;
-
-            color: #aaa;
-
-            font-size: 19px;
-        }
-
-
-        .hero-buttons {
-
-            margin-top: 40px;
-
-            display: flex;
-
-            justify-content: center;
-
-            gap: 15px;
-
-            flex-wrap: wrap;
-        }
-
-
-        .button {
-
-            display: inline-block;
-
-            padding: 14px 30px;
-
-            border: 1px solid #444;
-
-            border-radius: 30px;
-
-            color: white;
-
-            text-decoration: none;
-
-            transition: 0.3s;
-        }
-
-
-        .button:hover {
-
-            background: #168cff;
-
-            border-color: #168cff;
-
-            color: white;
-
-            transform: translateY(-2px);
-        }
-
-
-        .button.secondary {
-
-            color: #aaa;
-        }
-
-
-        /* =========================
-           SECTIONS
-        ========================= */
-
-        section {
-
-            max-width: 1100px;
-
-            margin: auto;
-
-            padding: 100px 25px;
-        }
-
-
-        .section-label {
-
-            color: #777;
-
-            text-transform: uppercase;
-
-            letter-spacing: 3px;
-
-            font-size: 13px;
-
-            margin-bottom: 10px;
-        }
-
-
-        .section-title {
-
-            font-size: 42px;
-
-            margin-bottom: 15px;
-        }
-
-
-        .section-line {
-
-            width: 60px;
-
-            height: 3px;
-
-            background: #168cff;
-
-            margin-bottom: 35px;
-        }
-
-
-        .section-description {
-
-            color: #999;
-
-            max-width: 750px;
-
-            font-size: 18px;
-        }
-
-
-        /* =========================
-           ABOUT
-        ========================= */
-
-        .about-box {
-
-            margin-top: 40px;
-
-            background: #0c0c0c;
-
-            border: 1px solid #222;
-
-            border-radius: 20px;
-
-            padding: 35px;
-        }
-
-
-        .about-box p {
-
-            color: #aaa;
-
+            color: var(--text-muted);
             font-size: 17px;
         }
 
+        .hero-buttons {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.5);
+            background: linear-gradient(135deg, #3b82f6 0%, var(--primary) 100%);
+        }
+
+        .button.secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            box-shadow: none;
+            backdrop-filter: blur(10px);
+        }
+
+        .button.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--text-muted);
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+        }
 
         /* =========================
-           PROJECTS
+           SECTIONS LAYOUT
         ========================= */
-
-        .projects {
-
-            margin-top: 45px;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(280px, 1fr)
-                );
-
-            gap: 22px;
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 100px 25px;
+            position: relative;
         }
 
-
-        .project-card {
-
-            background: #0c0c0c;
-
-            border: 1px solid #222;
-
-            border-radius: 18px;
-
-            padding: 30px;
-
-            transition: 0.3s;
+        .section-label {
+            color: var(--primary-glow);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 10px;
         }
 
-
-        .project-card:hover {
-
-            transform: translateY(-7px);
-
-            border-color: #168cff;
-        }
-
-
-        .project-number {
-
-            color: #666;
-
-            font-size: 14px;
-
-            margin-bottom: 20px;
-        }
-
-
-        .project-card h3 {
-
-            font-size: 24px;
-
+        .section-title {
+            font-size: clamp(32px, 5vw, 42px);
+            font-weight: 700;
+            letter-spacing: -1px;
             margin-bottom: 12px;
         }
 
-
-        .project-card p {
-
-            color: #888;
-
+        .section-line {
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-glow), var(--accent-cyan));
+            border-radius: 2px;
             margin-bottom: 25px;
         }
 
+        .section-description {
+            color: var(--text-muted);
+            max-width: 700px;
+            font-size: 17px;
+        }
+
+        /* =========================
+           GLASS CARDS & BOXES
+        ========================= */
+        .glass-box {
+            margin-top: 35px;
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 35px;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            transition: var(--transition);
+        }
+
+        .glass-box:hover {
+            border-color: var(--border-hover);
+        }
+
+        .glass-box p {
+            color: #cbd5e1;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .glass-box strong {
+            color: var(--text-main);
+        }
+
+        .profile-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .info-item p {
+            font-size: 15px;
+            margin-top: 4px;
+            color: var(--text-muted);
+        }
+
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 25px;
+        }
+
+        .social-card {
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .social-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--primary-glow);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px -5px rgba(56, 189, 248, 0.2);
+        }
+
+        /* =========================
+           PROJECTS GRID
+        ========================= */
+        .projects {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-glow), var(--accent-cyan));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+            box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.6);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-number {
+            color: var(--primary-glow);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .project-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
 
         .project-status {
-
-            display: inline-block;
-
-            padding: 6px 12px;
-
-            border: 1px solid #333;
-
+            align-self: flex-start;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.2);
             border-radius: 20px;
-
-            color: #999;
-
+            color: var(--primary-glow);
             font-size: 12px;
+            font-weight: 600;
         }
-
 
         /* =========================
-           FUTURE
+           FUTURE GRID
         ========================= */
-
         .future-box {
-
-            margin-top: 40px;
-
+            margin-top: 35px;
             display: grid;
-
-            grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(220px, 1fr)
-                );
-
-            gap: 18px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
         }
-
 
         .future-item {
-
-            padding: 25px;
-
-            background: #0b0b0b;
-
-            border: 1px solid #222;
-
-            border-radius: 15px;
+            padding: 28px;
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            transition: var(--transition);
         }
 
+        .future-item:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+        }
 
         .future-item h3 {
-
-            margin-bottom: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-main);
         }
-
 
         .future-item p {
-
-            color: #888;
-
-            font-size: 15px;
+            color: var(--text-muted);
+            font-size: 14px;
         }
-
 
         /* =========================
-           EXAMINATIONS
+           EXAMINATIONS & CERTIFICATES
         ========================= */
-
-        .exam-box {
-
-            margin-top: 40px;
-
-            padding: 40px;
-
-            border-radius: 20px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #161616,
-                    #090909
-                );
-
-            border: 1px solid #292929;
-        }
-
-
-        .exam-box h3 {
-
-            font-size: 28px;
-
-            margin-bottom: 12px;
-        }
-
-
-        .exam-box p {
-
-            color: #999;
-
-            max-width: 700px;
-        }
-
-
-        .coming {
-
+        .status-badge {
             display: inline-block;
-
             margin-top: 25px;
-
-            padding: 8px 15px;
-
-            border: 1px solid #444;
-
+            padding: 6px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
             border-radius: 20px;
-
-            color: #aaa;
-
+            color: var(--text-muted);
             font-size: 13px;
+            font-weight: 500;
         }
-
-
-        /* =========================
-           CERTIFICATES
-        ========================= */
-
-        .certificate-box {
-
-            margin-top: 40px;
-
-            text-align: center;
-
-            padding: 45px 25px;
-
-            background: #0c0c0c;
-
-            border: 1px solid #222;
-
-            border-radius: 20px;
-        }
-
-
-        .certificate-box h3 {
-
-            font-size: 28px;
-
-            margin-bottom: 12px;
-        }
-
-
-        .certificate-box p {
-
-            color: #888;
-
-            max-width: 650px;
-
-            margin: auto;
-        }
-
-
-        /* =========================
-           CONTACT
-        ========================= */
-
-        .contact-box {
-
-            margin-top: 40px;
-
-            text-align: center;
-
-            padding: 45px 25px;
-
-            background: #0c0c0c;
-
-            border: 1px solid #222;
-
-            border-radius: 20px;
-        }
-
-
-        .contact-box p {
-
-            color: #888;
-        }
-
 
         /* =========================
            FOOTER
         ========================= */
-
         footer {
-
-            border-top: 1px solid #222;
-
-            padding: 30px 20px;
-
+            border-top: 1px solid var(--border-color);
+            padding: 40px 20px;
             text-align: center;
-
-            color: #666;
+            color: var(--text-dim);
+            font-size: 14px;
+            background: rgba(3, 7, 18, 0.8);
         }
-
 
         footer strong {
-
-            color: #aaa;
+            color: var(--text-main);
         }
 
+        /* =========================
+           ANIMATIONS
+        ========================= */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.4;
+                transform: scale(0.9);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+            100% {
+                opacity: 0.4;
+                transform: scale(0.9);
+            }
+        }
 
         /* =========================
-           MOBILE
+           MOBILE ADAPTATION
         ========================= */
-
-        @media (max-width: 700px) {
-
+        @media (max-width: 768px) {
             .nav-links {
-
-                display: none;
+                display: none; /* Can be updated to a mobile hamburger menu if preferred */
             }
 
             .logo {
-
-                width: 105px;
-
-                height: 52px;
+                width: 95px;
+                height: 45px;
             }
 
             .hero h1 {
+                letter-spacing: -2px;
+            }
 
-                letter-spacing: -3px;
+            .hero-subtitle {
+                font-size: 18px;
             }
 
             .hero-description {
-
-                font-size: 16px;
-            }
-
-            .section-title {
-
-                font-size: 34px;
+                font-size: 15px;
             }
 
             section {
-
                 padding: 75px 20px;
             }
-        }
 
+            .glass-box, .project-card {
+                padding: 24px;
+            }
+        }
     </style>
 
     <script type="application/ld+json">
@@ -697,669 +623,277 @@
         }
     }
     </script>
-
 </head>
 
-
 <body>
-
 
 <!-- =========================
      NAVIGATION
 ========================= -->
-
 <nav>
-
     <div class="nav-container">
-
-        <a
-            href="#home"
-            class="logo-link"
-            aria-label="Thallam X Home"
-        >
-
-            <!-- YOUR EXACT LOGO -->
-            <img
-                src="logo.png"
-                alt="Thallam X official logo"
-                class="logo"
-            >
-
+        <a href="#home" class="logo-link" aria-label="Thallam X Home">
+            <img src="logo.png" alt="Thallam X official logo" class="logo">
         </a>
 
-
         <ul class="nav-links">
-
-            <li>
-                <a href="#about">
-                    About
-                </a>
-            </li>
-
-            <li>
-                <a href="#profile">
-                    Profile
-                </a>
-            </li>
-
-            <li>
-                <a href="#social">
-                    Social
-                </a>
-            </li>
-
-            <li>
-                <a href="#projects">
-                    Projects
-                </a>
-            </li>
-
-            <li>
-                <a href="#exams">
-                    Examinations
-                </a>
-            </li>
-
-            <li>
-                <a href="#certificates">
-                    Certificates
-                </a>
-            </li>
-
+            <li><a href="#about">About</a></li>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#social">Social</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#exams">Examinations</a></li>
+            <li><a href="#certificates">Certificates</a></li>
         </ul>
-
     </div>
-
 </nav>
 
-
 <!-- =========================
-     HOME
+     HERO SECTION
 ========================= -->
-
-<header
-    class="hero"
-    id="home"
->
-
+<header class="hero" id="home">
     <div class="hero-content">
-
-        <div class="hero-label">
-            Official Digital Platform
-        </div>
-
+        <div class="hero-label">Official Digital Platform</div>
 
         <h1>
-
-            <span class="white">
-                Thallam
-            </span>
-
-            <span class="blue">
-                X
-            </span>
-
+            <span class="white">Thallam</span>
+            <span class="blue">X</span>
         </h1>
 
-
         <p class="hero-subtitle">
-            Thallam Siddhu — Computer Science and Engineering student,
-            creator of Thallam X, and builder of practical technology projects.
+            Thallam Siddhu — Computer Science and Engineering student, creator of Thallam X, and builder of practical technology projects.
         </p>
-
 
         <p class="hero-description">
-
-            A growing digital platform for
-            technology projects, future initiatives,
-            examinations, certificates and new ideas.
-
+            A growing digital ecosystem for software engineering projects, modern platforms, examinations, and future technology initiatives.
         </p>
 
-
         <div class="hero-buttons">
-
-            <a
-                href="#projects"
-                class="button"
-            >
-                Explore Projects
-            </a>
-
-
-            <a
-                href="#about"
-                class="button secondary"
-            >
-                Discover Thallam X
-            </a>
-
+            <a href="#projects" class="button">Explore Projects</a>
+            <a href="#about" class="button secondary">Discover Thallam X</a>
         </div>
-
     </div>
-
 </header>
-
 
 <!-- =========================
      ABOUT
 ========================= -->
-
 <section id="about">
-
-    <div class="section-label">
-        About
-    </div>
-
-
-    <h2 class="section-title">
-        What is Thallam X?
-    </h2>
-
-
+    <div class="section-label">Overview</div>
+    <h2 class="section-title">What is Thallam X?</h2>
     <div class="section-line"></div>
 
-
     <p class="section-description">
-
-        Thallam X is a growing digital identity
-        focused on technology, software projects,
-        learning, creativity and future initiatives.
-
+        Thallam X is a modern digital brand and repository focused on software development, technological exploration, and structured project execution.
     </p>
 
-
-    <div class="about-box">
-
+    <div class="glass-box">
         <p>
-
-            Thallam X brings together projects and
-            future initiatives under one online identity.
-            New projects, examinations, certificates
-            and other activities can be added to this
-            platform as it grows.
-
+            Thallam X brings together technological projects and ambitious future initiatives under a unified online presence. Designed to scale, it acts as a central hub for hosting software tools, tracking examinations, issuing verified certificates, and sharing academic and individual developments.
         </p>
-
     </div>
-
 </section>
-
 
 <!-- =========================
-     THALLAM SIDDHU PROFILE
+     PROFILE
 ========================= -->
-
 <section id="profile">
-
-    <div class="section-label">
-        Profile
-    </div>
-
-    <h2 class="section-title">
-        Thallam Siddhu
-    </h2>
-
+    <div class="section-label">Creator</div>
+    <h2 class="section-title">Thallam Siddhu</h2>
     <div class="section-line"></div>
 
     <p class="section-description">
-        Computer Science and Engineering student and creator of
-        Thallam X.
+        Computer Science and Engineering student and founder of Thallam X.
     </p>
 
-    <div class="about-box">
-
+    <div class="glass-box">
         <p>
-            Thallam Siddhu is a Computer Science and Engineering
-            student and the creator of Thallam X, a digital platform
-            focused on technology projects, learning, examinations,
-            certificates and future initiatives.
+            Thallam Siddhu is a Computer Science and Engineering student dedicated to crafting practical software solutions. His core focus encompasses full-stack development, application design, systems engineering, and artificial intelligence.
         </p>
-
         <br>
-
         <p>
-            He is interested in software development, programming,
-            web technologies, artificial intelligence and building
-            practical technology-based projects.
+            Through Thallam X, his software applications, ongoing learning milestones, certification programs, and future ventures are organized within a single official portal.
         </p>
 
-        <br>
-
-        <p>
-            Through Thallam X, his projects, learning journey,
-            examinations, certificates, achievements and future
-            initiatives can be brought together under one official
-            digital identity.
-        </p>
-
-        <br>
-
-        <p>
-            <strong>Education:</strong>
-            B.E. Computer Science and Engineering
-        </p>
-
-        <p>
-            <strong>College:</strong>
-            Dhaanish Ahmed College of Engineering
-        </p>
-
-        <p>
-            <strong>Platform:</strong>
-            Thallam X
-        </p>
-
+        <div class="profile-info">
+            <div class="info-item">
+                <strong>Education</strong>
+                <p>B.E. Computer Science and Engineering</p>
+            </div>
+            <div class="info-item">
+                <strong>College</strong>
+                <p>Dhaanish Ahmed College of Engineering</p>
+            </div>
+            <div class="info-item">
+                <strong>Platform</strong>
+                <p>Thallam X</p>
+            </div>
+        </div>
     </div>
-
 </section>
-
 
 <!-- =========================
      SOCIAL PROFILES
 ========================= -->
-
 <section id="social">
-
-    <div class="section-label">
-        Social Profiles
-    </div>
-
-    <h2 class="section-title">
-        Find Thallam Siddhu
-    </h2>
-
+    <div class="section-label">Connect</div>
+    <h2 class="section-title">Find Thallam Siddhu</h2>
     <div class="section-line"></div>
 
     <p class="section-description">
-        Official public profiles and social platforms of Thallam Siddhu.
+        Verified social channels and professional platforms.
     </p>
 
-    <div class="about-box">
-
-        <p>
-            <strong>Instagram:</strong>
-            <a href="https://www.instagram.com/si_ddhu9908/" target="_blank" rel="noopener noreferrer">
-                @si_ddhu9908
-            </a>
-        </p>
-
-        <p>
-            <strong>LinkedIn:</strong>
-            <a href="https://in.linkedin.com/in/thallam-siddhu-952b63326" target="_blank" rel="noopener noreferrer">
-                Thallam Siddhu
-            </a>
-        </p>
-
-        <p>
-            <strong>YouTube:</strong>
-            <a href="https://youtube.com/@thallamsiddhureddy" target="_blank" rel="noopener noreferrer">
-                Thallam Siddhu Reddy
-            </a>
-        </p>
-
-        <p>
-            <strong>Facebook:</strong>
-            <a href="https://www.facebook.com/share/18Kkw45LYr/" target="_blank" rel="noopener noreferrer">
-                Thallam Siddhu
-            </a>
-        </p>
-
+    <div class="social-links">
+        <a href="https://www.instagram.com/si_ddhu9908/" target="_blank" rel="noopener noreferrer" class="social-card">
+            Instagram: @si_ddhu9908
+        </a>
+        <a href="https://in.linkedin.com/in/thallam-siddhu-952b63326" target="_blank" rel="noopener noreferrer" class="social-card">
+            LinkedIn: Thallam Siddhu
+        </a>
+        <a href="https://youtube.com/@thallamsiddhureddy" target="_blank" rel="noopener noreferrer" class="social-card">
+            YouTube: Thallam Siddhu Reddy
+        </a>
+        <a href="https://www.facebook.com/share/18Kkw45LYr/" target="_blank" rel="noopener noreferrer" class="social-card">
+            Facebook: Thallam Siddhu
+        </a>
     </div>
-
 </section>
-
 
 <!-- =========================
      PROJECTS
 ========================= -->
-
 <section id="projects">
-
-    <div class="section-label">
-        Projects
-    </div>
-
-
-    <h2 class="section-title">
-        Projects by Thallam X
-    </h2>
-
-
+    <div class="section-label">Portfolio</div>
+    <h2 class="section-title">Projects by Thallam X</h2>
     <div class="section-line"></div>
 
-
     <p class="section-description">
-
-        Explore current technology and software
-        projects. More projects will be added
-        in the future.
-
+        Explore current software platforms and applications.
     </p>
 
-
     <div class="projects">
-
-
-        <!-- PASSWORDVault -->
-
+        <!-- PASSWORDVAULT -->
         <div class="project-card">
-
-            <div class="project-number">
-                PROJECT 01
+            <div>
+                <div class="project-number">PROJECT 01</div>
+                <h3>PasswordVault</h3>
+                <p>A secure password management tool designed to store, manage, and encrypt account credentials safely.</p>
             </div>
-
-
-            <h3>
-                PasswordVault
-            </h3>
-
-
-            <p>
-
-                A password management project designed
-                to securely store and manage account
-                credentials.
-
-            </p>
-
-
-            <span class="project-status">
-                Current Project
-            </span>
-
+            <span class="project-status">Active Project</span>
         </div>
 
-
-        <!-- HOSTEL -->
-
+        <!-- HOSTEL MANAGEMENT -->
         <div class="project-card">
-
-            <div class="project-number">
-                PROJECT 02
+            <div>
+                <div class="project-number">PROJECT 02</div>
+                <h3>Hostel Management System</h3>
+                <p>A web-based administration system for student record management, room allocations, and facility tracking.</p>
             </div>
-
-
-            <h3>
-                Hostel Management System
-            </h3>
-
-
-            <p>
-
-                A hostel management project covering
-                student management, rooms, administration
-                and hostel-related activities.
-
-            </p>
-
-
-            <span class="project-status">
-                Current Project
-            </span>
-
+            <span class="project-status">Active Project</span>
         </div>
 
-
-        <!-- WEATHER -->
-
+        <!-- SMART WEATHER -->
         <div class="project-card">
-
-            <div class="project-number">
-                PROJECT 03
+            <div>
+                <div class="project-number">PROJECT 03</div>
+                <h3>Smart Weather</h3>
+                <p>A responsive weather dynamic dashboard providing location-based real-time forecasts and environmental metrics.</p>
             </div>
-
-
-            <h3>
-                Smart Weather
-            </h3>
-
-
-            <p>
-
-                A weather application designed to provide
-                location-based weather information through
-                an interactive interface.
-
-            </p>
-
-
-            <span class="project-status">
-                Current Project
-            </span>
-
+            <span class="project-status">Active Project</span>
         </div>
-
-
     </div>
-
 </section>
-
 
 <!-- =========================
      FUTURE
 ========================= -->
-
 <section>
-
-    <div class="section-label">
-        Future
-    </div>
-
-
-    <h2 class="section-title">
-        More to Come
-    </h2>
-
-
+    <div class="section-label">Roadmap</div>
+    <h2 class="section-title">More to Come</h2>
     <div class="section-line"></div>
 
-
     <p class="section-description">
-
-        Thallam X will continue to grow with
-        new projects, ideas and digital initiatives.
-
+        Upcoming expansions and technological ventures planned for the platform.
     </p>
 
-
     <div class="future-box">
-
-
         <div class="future-item">
-
-            <h3>
-                New Projects
-            </h3>
-
-            <p>
-                New software and technology projects
-                will be added here.
-            </p>
-
+            <h3>New Applications</h3>
+            <p>Expanding into mobile applications and AI-driven utility utilities.</p>
         </div>
 
-
         <div class="future-item">
-
-            <h3>
-                New Initiatives
-            </h3>
-
-            <p>
-                Future digital initiatives can be
-                introduced through Thallam X.
-            </p>
-
+            <h3>Digital Initiatives</h3>
+            <p>Collaborative learning spaces and tech resources under the Thallam X banner.</p>
         </div>
 
-
         <div class="future-item">
-
-            <h3>
-                Future Opportunities
-            </h3>
-
-            <p>
-                More features and opportunities will
-                be introduced as Thallam X develops.
-            </p>
-
+            <h3>Platform Scalability</h3>
+            <p>Continuous UX and structural improvements for seamless user interaction.</p>
         </div>
-
-
     </div>
-
 </section>
-
 
 <!-- =========================
      EXAMINATIONS
 ========================= -->
-
 <section id="exams">
-
-    <div class="section-label">
-        Examinations
-    </div>
-
-
-    <h2 class="section-title">
-        Thallam X Examinations
-    </h2>
-
-
+    <div class="section-label">Assessments</div>
+    <h2 class="section-title">Thallam X Examinations</h2>
     <div class="section-line"></div>
 
-
     <p class="section-description">
-
-        Future examinations conducted through
-        Thallam X will be published on this page.
-
+        Testing and evaluation infrastructure hosted directly on the platform.
     </p>
 
-
-    <div class="exam-box">
-
-        <h3>
-            Upcoming Examinations
-        </h3>
-
-
+    <div class="glass-box">
+        <h3 style="font-size: 22px; margin-bottom: 10px;">Upcoming Examinations</h3>
         <p>
-
-            Examination information, registration details,
-            eligibility, instructions and results will be
-            published here when examinations are introduced.
-
+            Registration details, syllabus outlines, candidate guidelines, and online test modules will be published here as examination frameworks are deployed.
         </p>
-
-
-        <span class="coming">
-            Future Initiative
-        </span>
-
+        <span class="status-badge">Future Expansion</span>
     </div>
-
 </section>
-
 
 <!-- =========================
      CERTIFICATES
 ========================= -->
-
 <section id="certificates">
-
-    <div class="section-label">
-        Certificates
-    </div>
-
-
-    <h2 class="section-title">
-        Thallam X Certificates
-    </h2>
-
-
+    <div class="section-label">Credentials</div>
+    <h2 class="section-title">Thallam X Certificates</h2>
     <div class="section-line"></div>
 
-
     <p class="section-description">
-
-        Certificate-related information will be added
-        when Thallam X examinations and certification
-        programs are introduced.
-
+        Verification protocols for credentials issued via Thallam X programs.
     </p>
 
-
-    <div class="certificate-box">
-
-        <h3>
-            Certificate Verification
-        </h3>
-
-
-        <p>
-
-            In the future, eligible participants may be
-            able to verify certificates issued through
-            Thallam X using a unique certificate
-            identification system.
-
+    <div class="glass-box" style="text-align: center;">
+        <h3 style="font-size: 22px; margin-bottom: 10px;">Certificate Verification Portal</h3>
+        <p style="max-width: 600px; margin: auto;">
+            Participants finishing programs or examinations will be granted digital certificates verifiable via unique identification keys directly through this system.
         </p>
-
     </div>
-
 </section>
-
 
 <!-- =========================
      CONTACT
 ========================= -->
-
 <section id="contact">
-
-    <div class="section-label">
-        Contact
-    </div>
-
-
-    <h2 class="section-title">
-        Thallam X
-    </h2>
-
-
+    <div class="section-label">Identity</div>
+    <h2 class="section-title">Thallam X</h2>
     <div class="section-line"></div>
 
-
-    <div class="contact-box">
-
-        <p>
-            Official online presence of Thallam X.
-        </p>
-
+    <div class="glass-box" style="text-align: center;">
+        <p>Official online platform of <strong>Thallam X</strong>.</p>
     </div>
-
 </section>
-
 
 <!-- =========================
      FOOTER
 ========================= -->
-
 <footer>
-
-    © 2026
-
-    <strong>
-        Thallam X
-    </strong>
-
-    . All rights reserved.
-
+    © 2026 <strong>Thallam X</strong>. All rights reserved.
 </footer>
-
 
 </body>
 </html>
