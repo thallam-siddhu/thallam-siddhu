@@ -1023,6 +1023,300 @@
             }
         }
 
+        /* =========================
+           ENHANCED DESIGN
+        ========================= */
+
+        ::selection {
+            background: rgba(56,189,248,.25);
+            color: #fff;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+            background-image: radial-gradient(rgba(255,255,255,.055) 1px, transparent 1px);
+            background-size: 28px 28px;
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,.65), transparent 75%);
+        }
+
+        .nav-container {
+            position: relative;
+        }
+
+        .menu-toggle {
+            display: none;
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--border);
+            border-radius: 13px;
+            background: rgba(255,255,255,.04);
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .menu-toggle span {
+            display: block;
+            height: 2px;
+            margin: 5px 0;
+            border-radius: 5px;
+            background: var(--white);
+            transition: var(--transition);
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        .hero-content {
+            animation: heroIn 1s ease forwards, floatHero 6s ease-in-out 1s infinite;
+        }
+
+        .hero-badge {
+            box-shadow: 0 0 35px rgba(56,189,248,.06);
+        }
+
+        .hero h1 {
+            text-shadow: 0 10px 60px rgba(56,189,248,.08);
+        }
+
+        .project-link {
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .project-icon {
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 18px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, rgba(37,99,235,.18), rgba(6,182,212,.08));
+            border: 1px solid rgba(56,189,248,.13);
+            font-size: 22px;
+            transition: var(--transition);
+        }
+
+        .project:hover .project-icon {
+            transform: rotate(-5deg) scale(1.08);
+            box-shadow: 0 10px 30px rgba(37,99,235,.16);
+        }
+
+        .project-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .project-arrow {
+            width: 34px;
+            height: 34px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--blue);
+            font-size: 17px;
+            transition: var(--transition);
+        }
+
+        .project:hover .project-arrow {
+            transform: translate(3px, -3px);
+            border-color: var(--blue);
+            background: rgba(56,189,248,.08);
+        }
+
+        .project-current {
+            background: linear-gradient(145deg, rgba(56,189,248,.075), rgba(15,23,42,.72));
+            border-color: rgba(56,189,248,.18);
+        }
+
+        .project-current::after {
+            content: "";
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            right: -75px;
+            bottom: -75px;
+            border-radius: 50%;
+            background: rgba(56,189,248,.08);
+            filter: blur(25px);
+        }
+
+        .project-status {
+            padding: 6px 10px;
+            border-radius: 20px;
+            color: #a7f3d0;
+            background: rgba(16,185,129,.08);
+            border: 1px solid rgba(16,185,129,.18);
+            font-size: 10px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .address-link {
+            display: block;
+            line-height: 1.65;
+        }
+
+        .contact-item {
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-hover);
+            background: var(--card-hover);
+        }
+
+        .social, .certificate, .info-card, .skill {
+            will-change: transform;
+        }
+
+        @keyframes floatHero {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-7px); }
+        }
+
+        @media (max-width: 800px) {
+            .nav-container {
+                padding: 10px 18px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .mobile-menu {
+                display: flex;
+                max-height: 0;
+                overflow: hidden;
+                flex-direction: column;
+                padding: 0 20px;
+                background: rgba(5,7,13,.94);
+                backdrop-filter: blur(22px);
+                transition: max-height .4s ease, padding .4s ease;
+            }
+
+            .mobile-menu.open {
+                max-height: 500px;
+                padding: 8px 20px 18px;
+                border-top: 1px solid var(--border);
+            }
+
+            .mobile-menu a {
+                padding: 12px 4px;
+                color: var(--muted);
+                text-decoration: none;
+                border-bottom: 1px solid rgba(255,255,255,.05);
+                font-size: 14px;
+            }
+
+            .mobile-menu a:last-child {
+                border-bottom: 0;
+            }
+
+            .mobile-menu a:active,
+            .mobile-menu a:hover {
+                color: var(--blue);
+            }
+
+            .menu-toggle.active span:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+
+            .hero-content {
+                animation: heroIn 1s ease forwards;
+            }
+
+            .project {
+                padding: 25px;
+            }
+
+            .project:active {
+                transform: scale(.985);
+            }
+
+            .glass:hover,
+            .info-card:hover,
+            .certificate:hover,
+            .social:hover,
+            .contact-item:hover {
+                transform: none;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .hero {
+                min-height: 92vh;
+                padding-top: 125px;
+            }
+
+            .hero h1 {
+                font-size: clamp(48px, 16vw, 68px);
+                letter-spacing: -3px;
+            }
+
+            .hero-badge {
+                font-size: 10px;
+                padding: 7px 13px;
+            }
+
+            .section-title {
+                font-size: 34px;
+            }
+
+            .section-description {
+                font-size: 14px;
+            }
+
+            .glass {
+                padding: 22px;
+            }
+
+            .contact-item p,
+            .contact-item a {
+                font-size: 13px;
+            }
+
+            .project-footer {
+                align-items: flex-end;
+            }
+
+            .project-tag {
+                max-width: calc(100% - 44px);
+                line-height: 1.5;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+        }
+
     </style>
 
     <!-- Google / Search structured data -->
@@ -1102,6 +1396,22 @@
 
         </ul>
 
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
+
+    <div class="mobile-menu">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#contact">Contact</a>
     </div>
 
 </nav>
@@ -1316,92 +1626,48 @@
 
     <div class="projects">
 
-
-        <div class="project">
-
-            <div class="project-number">
-                PROJECT 01
+        <a class="project project-link" href="https://thallam-siddhu.github.io/passwordvault/" target="_blank" rel="noopener noreferrer">
+            <div class="project-number">PROJECT 01</div>
+            <div class="project-icon">🔐</div>
+            <h3>PasswordVault</h3>
+            <p>A password management application built with Flask and SQLite for storing and managing account credentials.</p>
+            <div class="project-footer">
+                <span class="project-tag">Python • Flask • SQLite</span>
+                <span class="project-arrow" aria-hidden="true">↗</span>
             </div>
+        </a>
 
-            <h3>
-                PasswordVault
-            </h3>
-
-            <p>
-                A password management application built with Flask and SQLite
-                for storing and managing account credentials.
-            </p>
-
-            <span class="project-tag">
-                Python • Flask • SQLite
-            </span>
-
-        </div>
-
-
-        <div class="project">
-
-            <div class="project-number">
-                PROJECT 02
+        <a class="project project-link" href="https://thallam-siddhu.github.io/hostel-management-system/" target="_blank" rel="noopener noreferrer">
+            <div class="project-number">PROJECT 02</div>
+            <div class="project-icon">🏠</div>
+            <h3>Hostel Management System</h3>
+            <p>A web-based hostel management platform for student records, rooms, outing requests, mess information and administration.</p>
+            <div class="project-footer">
+                <span class="project-tag">Flask • SQLite • Web</span>
+                <span class="project-arrow" aria-hidden="true">↗</span>
             </div>
+        </a>
 
-            <h3>
-                Hostel Management System
-            </h3>
-
-            <p>
-                A web-based hostel management platform for student records,
-                rooms, outing requests, mess information and administration.
-            </p>
-
-            <span class="project-tag">
-                Flask • SQLite • Web
-            </span>
-
-        </div>
-
-
-        <div class="project">
-
-            <div class="project-number">
-                PROJECT 03
+        <a class="project project-link" href="https://thallam-siddhu.github.io/smart-weather/" target="_blank" rel="noopener noreferrer">
+            <div class="project-number">PROJECT 03</div>
+            <div class="project-icon">☁️</div>
+            <h3>Smart Weather</h3>
+            <p>A location-based weather application designed to display weather information using APIs and an interactive interface.</p>
+            <div class="project-footer">
+                <span class="project-tag">Flask • API • JavaScript</span>
+                <span class="project-arrow" aria-hidden="true">↗</span>
             </div>
+        </a>
 
-            <h3>
-                Online Voting System
-            </h3>
-
-            <p>
-                A web application for user registration, login, voting,
-                one-vote control and result management.
-            </p>
-
-            <span class="project-tag">
-                Python • Flask • SQLite
-            </span>
-
-        </div>
-
-
-        <div class="project">
-
-            <div class="project-number">
-                PROJECT 04
+        <div class="project project-current">
+            <div class="project-number">PROJECT 04 • CURRENTLY BUILDING</div>
+            <div class="project-icon">✦</div>
+            <h3>AI Assistant</h3>
+            <p>An AI assistant project currently under development, focused on building a practical and helpful software experience.</p>
+            <div class="project-footer">
+                <span class="project-tag">Python • AI • Flask</span>
+                <span class="project-status">In Progress</span>
             </div>
-
-            <h3>
-                Smart Weather
-            </h3>
-
-            <p>
-                A location-based weather application designed to display
-                weather information using APIs and an interactive interface.
-            </p>
-
-            <span class="project-tag">
-                Flask • API • JavaScript
-            </span>
-
         </div>
 
     </div>
@@ -1659,9 +1925,9 @@
                 Location
             </span>
 
-            <p>
-                Chennai, Tamil Nadu, India
-            </p>
+            <a href="https://maps.app.goo.gl/DpY1qPCiFP76zst99" target="_blank" rel="noopener noreferrer" class="address-link">
+                JPGM+8J2, Srikalahasti - Pichatur Rd, Timmasamudram, Andhra Pradesh 517643
+            </a>
 
         </div>
 
@@ -1672,8 +1938,8 @@
                 Email
             </span>
 
-            <a href="mailto:your-email@example.com">
-                your-email@example.com
+            <a href="mailto:thallamsiddhureddy@gmail.com">
+                thallamsiddhureddy@gmail.com
             </a>
 
         </div>
@@ -1703,41 +1969,41 @@
 
 <script>
 
-    const revealElements =
-        document.querySelectorAll(".reveal");
+    const revealElements = document.querySelectorAll(".reveal");
 
-    const observer =
-        new IntersectionObserver(
-            (entries) => {
-
-                entries.forEach(
-                    (entry) => {
-
-                        if (entry.isIntersecting) {
-
-                            entry.target.classList.add("show");
-
-                            observer.unobserve(entry.target);
-
-                        }
-
-                    }
-                );
-
-            },
-            {
-                threshold: 0.12
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+                observer.unobserve(entry.target);
             }
-        );
+        });
+    }, { threshold: 0.12 });
 
+    revealElements.forEach((element) => observer.observe(element));
 
-    revealElements.forEach(
-        (element) => {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const mobileMenu = document.querySelector(".mobile-menu");
 
-            observer.observe(element);
+    menuToggle?.addEventListener("click", () => {
+        const isOpen = mobileMenu.classList.toggle("open");
+        menuToggle.classList.toggle("active", isOpen);
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
 
-        }
-    );
+    document.querySelectorAll(".mobile-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+            mobileMenu.classList.remove("open");
+            menuToggle.classList.remove("active");
+            menuToggle.setAttribute("aria-expanded", "false");
+        });
+    });
+
+    document.querySelectorAll(".projects .project").forEach((card, index) => {
+        card.style.transitionDelay = `${index * 70}ms`;
+    });
+
+</script>
 
 </script>
 
